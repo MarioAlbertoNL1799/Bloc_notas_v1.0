@@ -32,12 +32,14 @@ public class ControllerBlocNotas {
         viewBlocnotas.jta_bloc.setText(modelBlocnotas.getLinea());
     }
     public void jki_guardar_actionPerformed(){
+        modelBlocnotas.setMessage(viewBlocnotas.jta_bloc.getText());
         modelBlocnotas.writeFile();
     }
      public ControllerBlocNotas(ModelBlocNotas modelBlocnotas, ViewBlocNotas viewBlocnotas) {
         this.modelBlocnotas = modelBlocnotas;
         this.viewBlocnotas = viewBlocnotas;
         this.viewBlocnotas.jMI_leer.addActionListener(al);
+        this.viewBlocnotas.jKI_guardar.addActionListener(al);
         initComponents();
     }
      public void initComponents(){
