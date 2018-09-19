@@ -20,6 +20,48 @@ public class ModelBlocNotas {
     private String path = "C:\\archivos\\archivo.txt";
     private String linea = "";
     private String message;
+    /**
+     * metodo
+     * @return regresa al valor que tiene predefinido.
+     */
+    public String getPath() {
+        return path;
+    }
+/**
+ * metodo set de la ruta del archivo
+ * @param path 
+ */
+    private void setPath(String path) {
+        this.path = path;
+    }
+    /**
+     * metodo donde se obtendra los textos de cada linea que contiene el archivo
+     * @return regresa al valor definido
+     */
+    public String getLinea() {
+        return linea;
+    }
+/**
+ * metodo que muestra los valores que contiene esta variable
+ * @param linea 
+ */
+    public void setLinea(String linea) {
+        this.linea = linea;
+    }
+/**
+ * metodo que obtiene las lineas escritas en el area de texto y es almacenada en la variable message
+ * @return 
+ */
+    public String getMessage() {
+        return message;
+    }
+/**
+ * metodo que muestra el contenido de la variable message
+ * @param message 
+ */
+    public void setMessage(String message) {
+        this.message = message;
+    }
     
     /**
      * Permite abrir el archivo txt y mostrar su contenido tal cual se encuentra en el archivo
@@ -43,11 +85,13 @@ public class ModelBlocNotas {
         System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
         }
     }   
-
+/**
+ * Metodo que permite escribir un texto nuevo en el archivo o abrir e iniciar un nuevo archivo de texto en caso de no existir
+ */
     public void writeFile(){
         try{
             File file = new File(path);
-            FileWriter fileWriter = new FileWriter(file,true);
+            FileWriter fileWriter = new FileWriter(file,false);//al tomar en el controlador todo el texto sobreescribimos el archivo y asi no habra repeticion de palabras
             try (PrintWriter printWriter = new PrintWriter(fileWriter)){
                 printWriter.println(message);
                 printWriter.close();
@@ -59,29 +103,5 @@ public class ModelBlocNotas {
         catch(IOException err){
             System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
         }
-    }
-    
-    public String getPath() {
-        return path;
-    }
-
-    private void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getLinea() {
-        return linea;
-    }
-
-    public void setLinea(String linea) {
-        this.linea = linea;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

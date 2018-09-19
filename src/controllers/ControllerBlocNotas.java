@@ -10,7 +10,7 @@ import views.ViewBlocNotas;
 import models.ModelBlocNotas;
 
 /**
- *
+ *clase que tiene el objeto de modelo y vista del bloc de notas y realiza un evento acorde a cada accion que realicemos
  * @author manl_
  */
 public class ControllerBlocNotas {
@@ -26,15 +26,26 @@ public class ControllerBlocNotas {
                 jki_guardar_actionPerformed();
         }
     };
-    
+    /**
+     * metodo que lee el archivo de texto y lo muestra en el area de texto
+     */
     public void jmi_leer_actionPerformed(){
         modelBlocnotas.readFile();
         viewBlocnotas.jta_bloc.setText(modelBlocnotas.getLinea());
     }
+    /**
+     * metodo que guarda todo el texto en una variable de tipo cadena y lo guarda en el archivo de texto 
+     */
     public void jki_guardar_actionPerformed(){
         modelBlocnotas.setMessage(viewBlocnotas.jta_bloc.getText());
         modelBlocnotas.writeFile();
     }
+    
+    /**
+     * constructor que permite la interaccion de los modelos y las vistas para su manipulacion
+     * @param modelBlocnotas objeto modelo que contiene variables y metodos para leer y agregar texto el archivo
+     * @param viewBlocnotas  objeto vista que permite visualizar el archivo de texto 
+     */
      public ControllerBlocNotas(ModelBlocNotas modelBlocnotas, ViewBlocNotas viewBlocnotas) {
         this.modelBlocnotas = modelBlocnotas;
         this.viewBlocnotas = viewBlocnotas;
@@ -42,6 +53,9 @@ public class ControllerBlocNotas {
         this.viewBlocnotas.jKI_guardar.addActionListener(al);
         initComponents();
     }
+     /**
+      * metodo que permite la visualizacion de la aplicacion de java
+      */
      public void initComponents(){
          this.viewBlocnotas.setVisible(true);
      }

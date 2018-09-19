@@ -8,12 +8,13 @@ import models.ModelBlocNotas;
 import views.ViewBlocNotas;
 import controllers.ControllerBlocNotas;
 /**
- *
+ *clase que maneja el modelo MVC para visualizar un archivo de texto y agregar datos
  * @author manl_
  */
 public class Main {
 
     /**
+     * metodo que une al controlador, visualizador y modelos.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
