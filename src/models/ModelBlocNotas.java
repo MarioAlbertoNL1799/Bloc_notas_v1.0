@@ -21,6 +21,9 @@ public class ModelBlocNotas {
     private String linea = "";
     private String message;
     
+    /**
+     * Permite abrir el archivo txt y mostrar su contenido tal cual se encuentra en el archivo
+     */
     public void readFile(){
     try{
         String row;
@@ -72,5 +75,13 @@ public class ModelBlocNotas {
 
     public void setLinea(String linea) {
         this.linea = linea;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
